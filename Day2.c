@@ -1,14 +1,10 @@
 #include<stdio.h>
 int main(){
-    int length;
-    printf("LENGTH:");
-    scanf("%d",&length);
-    int breadth;
-    printf("BREADTH:");
-    scanf("%d",&breadth);
-    int area;
-    printf("AREA IS:%d\n",length*breadth);
-    int perimeter;
-    printf("PERIMETER IS:%d\n",2*(length+breadth));
+    float radius;
+    scanf("%f",&radius);
+    printf("%f",3.14*radius*radius);
+    scanf("%f",&radius);
+    printf("%f",2*3.14*radius);
+
     return 0;
 }
