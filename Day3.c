@@ -1,9 +1,28 @@
 #include <stdio.h>
 int main(){
-float c;
-printf("C:");
-scanf("%f",&c);
-int F=(1.8*c)+32;
-printf("Fahrenheit is:%d\n",F);
+
+int a ,b , c;
+
+printf("A:");
+scanf("%d",&a);
+
+printf("B:");
+scanf("%d",&b);
+
+printf("\n BEFORE SWAPPING:\n");
+printf("THE FIRST NUMBER IS:%d\n",a);
+printf("THE SECOND NUMBER IS:%d\n",b);
+
+
+c = a;
+a = b;
+b = c;
+
+
+printf("\n AFTER SWAPPING\n");
+printf("THE FIRST LATTER IS:%d\n",a);
+printf("THE SECOND NUMBER IS:%d\n",b);
+
 return 0;
 }
+
