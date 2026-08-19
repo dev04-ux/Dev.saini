@@ -1,22 +1,50 @@
 
 #include<stdio.h>
+
 int main(){
     int a;
+
     printf("A:");
     scanf("%d",&a);
-    int b;
-    printf("B:");
-    scanf("%d",&b);
-    int c;
-    printf("C:");
-    scanf("%d",&c);
-    if( a==b && b==c ){
-         printf("The given triangle is equilateral");
-    } else if (a == b || b == c || c == a) {
-        printf("The given triangle is isosceles");
-    } else {
-        printf("The given triangle is scalene");
+
+    switch(a){
+
+        case 1:
+        printf("MONDAY");
+        break;
+
+
+
+
+
+
+
+
+
+        case 2:
+        printf("TUESDAY");
+         break;
+
+        case 3:
+        printf("WEDNESDAY");
+        break;
+
+        case 4:
+        printf("THURSDAY");
+        break;
+
+        case 5:
+        printf("FRIDAY");
+        break;
+
+        case 6:
+        printf("SATURDAY");
+        break;
+
+        case 7:
+        printf("SUNDAY");
+        break;
+
     }
-
-
+    return 0 ;
 }
