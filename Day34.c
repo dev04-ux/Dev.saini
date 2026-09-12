@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    int n, i, pos, element;
+    int n, i, pos;
     int arr[100];
 
     scanf("%d", &n);
@@ -10,15 +10,14 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    scanf("%d %d", &pos, &element);
+    scanf("%d", &pos);
 
-    // Shift elements to the right
-    for (i = n; i > pos; i--) {
-        arr[i] = arr[i - 1];
+    // Shift elements to the left
+    for (i = pos; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
     }
 
-    arr[pos] = element;
-    n++;
+    n--;
 
     // Print the updated array
     for (i = 0; i < n; i++) {
