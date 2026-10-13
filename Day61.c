@@ -1,37 +1,64 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main() {
-    int n, i;
-    scanf("%d", &n);
+void printFirstNegativeOfWindow(int arr[], int n, int k) {
+    int *queue = (int *)malloc(n * sizeof(int));
+    int head = 0, tail = 0;
 
-    int nums[n], answer[n];
-
-    for (i = 0; i < n; i++) {
-        scanf("%d", &nums[i]);
-    }
-
-    int prefix = 1;
-
-    for (i = 0; i < n; i++) {
-        answer[i] = prefix;
-        prefix *= nums[i];
-    }
-
-    int suffix = 1;
-
-    for (i = n - 1; i >= 0; i--) {
-        answer[i] *= suffix;
-        suffix *= nums[i];
-    }
-
-    printf("[");
-    for (i = 0; i < n; i++) {
-        printf("%d", answer[i]);
-        if (i < n - 1) {
-            printf(",");
+    for (int i = 0; i < k; i++) {
+        if (arr[i] < 0) {
+            queue[tail++] = i; 
         }
     }
-    printf("]\n");
 
+    for (int i = k; i < n; i++) {
+        if (head < tail) {
+            printf("%d ", arr[queue[head]]);
+        } else {
+            printf("0 ");
+        }
+
+        while (head < tail && queue[head] <= i - k) {
+            head++;
+        }
+
+        if (arr[i] < 0) {
+            queue[tail++] = i;
+        }
+    }
+
+    if (head < tail) {
+        printf("%d\n", arr[queue[head]]);
+    } else {
+        printf("0\n");
+    }
+
+    free(queue);
+}
+
+int main() {
+    int n, k;
+
+    printf("Enter the size of the array: ");
+    if (scanf("%d", &n) != 1 || n <= 0) return 1;
+
+    int *arr = (int *)malloc(n * sizeof(int));
+
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        if (scanf("%d", &arr[i]) != 1) return 1;
+    }
+
+    printf("Enter window size (k): ");
+    if (scanf("%d", &k) != 1 || k > n || k <= 0) {
+        printf("Invalid window size.\n");
+        free(arr);
+        return 1;
+    }
+
+    printf("Output: ");
+    printFirstNegativeOfWindow(arr, n, k);
+
+    free(arr);
     return 0;
 }
